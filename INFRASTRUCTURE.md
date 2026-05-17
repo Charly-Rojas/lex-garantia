@@ -157,6 +157,20 @@ Usar proveedor transaccional:
 
 Configurar SPF, DKIM y DMARC del proveedor elegido.
 
+Variables requeridas para el formulario publico:
+
+```text
+SMTP_HOST
+SMTP_PORT
+SMTP_SECURE
+SMTP_USER
+SMTP_PASSWORD
+CONTACT_EMAIL_FROM
+CONTACT_EMAIL_TO
+```
+
+El remitente previsto es `contacto@lexgarantia.com`. Antes de produccion se debe confirmar que el proveedor SMTP permite enviar desde ese dominio y que SPF/DKIM/DMARC estan correctamente publicados.
+
 ## Supabase CLI e infraestructura de datos
 
 Supabase vive fuera del VPS como backend principal.

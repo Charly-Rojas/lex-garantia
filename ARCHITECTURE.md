@@ -30,11 +30,26 @@ La aplicacion sera una plataforma Next.js con App Router, TypeScript y Supabase 
 
 ## Areas del sistema
 
-- Sitio publico: inicio, nosotros, servicios, ventajas, contacto, blog/SEO y formularios de lead.
+- Sitio publico: inicio, nosotros, servicios, ventajas, contacto, paginas legales, blog/SEO futuro y formularios de lead.
 - Panel interno: dashboard, expedientes, inmuebles, personas, contratos, documentos, reportes y configuracion.
 - Portal externo: acceso limitado para arrendadores y arrendatarios.
 - Administracion: usuarios, roles, permisos, sucursales, plantillas y catalogos.
 - Integraciones: firma, mensajeria, correo, calendario y almacenamiento.
+
+## Sitio publico vigente
+
+La version publica actual incluye:
+
+- Formulario de contacto con Server Action.
+- Envio de correo al buzon `contacto@lexgarantia.com` mediante SMTP configurable.
+- Correo de confirmacion de recepcion al solicitante.
+- Enlaces `mailto:`, `tel:`, WhatsApp y Google Maps.
+- Boton fijo de WhatsApp en todas las paginas.
+- Menu hamburguesa en mobile.
+- Animaciones de entrada con la libreria `motion`.
+- Paginas legales genericas: Terminos y condiciones, Politica de privacidad.
+
+El envio real de correo depende de configurar proveedor SMTP y variables de entorno en cada ambiente.
 
 ## Modelo conceptual inicial
 

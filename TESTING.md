@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Existe app Next.js inicial con paginas institucionales y estructura Supabase CLI. Las validaciones obligatorias de esta fase son lint, build y navegacion basica.
+Existe app Next.js con paginas institucionales, paginas legales, formulario de contacto SMTP configurable y estructura Supabase CLI. Las validaciones obligatorias de esta fase son lint, build y navegacion basica.
 
 ## Validaciones de Fase 0
 
@@ -39,12 +39,15 @@ Resultados de Paso 2:
 
 - `npm run lint`: exitoso.
 - `npm run build`: exitoso.
-- Rutas compiladas: `/`, `/contacto`, `/nosotros`, `/servicios`.
+- Rutas compiladas: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`.
 - Navegacion en dev server verificada con Playwright CLI:
   - Home con contenido visible.
   - Nosotros con texto institucional.
   - Servicios con cobertura juridica.
-  - Contacto con `contacto@lexgarantia.com`.
+  - Contacto con `contacto@lexgarantia.com`, formulario y ubicaciones.
+  - Paginas legales cargan contenido.
+  - Menu mobile abre y muestra navegacion.
+  - Boton fijo de WhatsApp visible.
   - Sin overlay de error de Next.js.
 
 Validar manualmente:
@@ -52,6 +55,7 @@ Validar manualmente:
 - Home publica carga sin errores.
 - Navegacion responsive.
 - Formularios muestran estados de carga, exito y error.
+- Envio real del formulario solo se valida cuando existan credenciales SMTP reales.
 - No hay errores de consola.
 - `next build` no falla por variables de entorno ausentes en build.
 - SDKs externos usan inicializacion lazy.

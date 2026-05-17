@@ -1,6 +1,7 @@
 import { CTA } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { ServiceCard } from "@/components/sections/service-card";
+import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/config/site";
 
@@ -15,33 +16,8 @@ export default function Home() {
         secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
       />
 
-      <section className="border-y border-neutral-200 bg-neutral-soft py-16 md:py-20">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-8">
-          <SectionHeading
-            eyebrow="Sistema en crecimiento"
-            title="Preparado para evolucionar de sitio institucional a plataforma operativa"
-            description="El alcance documentado contempla un MVP orientado al registro de datos, generación automática de contratos, almacenamiento documental e integraciones con WhatsApp y DocuSign."
-          />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {siteConfig.platformHighlights.map((item) => (
-              <div
-                className="border border-neutral-200 bg-white p-5"
-                key={item.title}
-              >
-                <h3 className="text-base font-semibold text-brand-blue">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-brand-gray">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-6 md:px-8">
+        <FadeIn className="mx-auto max-w-6xl px-6 md:px-8">
           <SectionHeading
             eyebrow="Servicios"
             title="Cobertura jurídica durante el proceso de arrendamiento"
@@ -57,11 +33,11 @@ export default function Home() {
               />
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <section className="bg-brand-blue py-16 text-white md:py-20">
-        <div className="mx-auto max-w-6xl px-6 md:px-8">
+        <FadeIn className="mx-auto max-w-6xl px-6 md:px-8">
           <SectionHeading
             eyebrow="Ventajas"
             title="Atención jurídica, investigación profesional y trato personalizado"
@@ -78,7 +54,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <CTA

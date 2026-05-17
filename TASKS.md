@@ -64,7 +64,13 @@ Fase 1 - Inicializacion tecnica del repositorio:
 - [x] Implementar Inicio, Nosotros, Servicios y Contacto.
 - [x] Incluir Ventajas en Inicio.
 - [x] Aplicar `BRAND.md`.
-- [ ] Crear formularios de lead.
+- [x] Crear formulario publico de contacto con envio SMTP configurable.
+- [x] Enviar confirmacion de recepcion al solicitante.
+- [x] Agregar enlaces directos `mailto:`, `tel:`, WhatsApp y mapas.
+- [x] Agregar boton fijo de WhatsApp en todas las paginas.
+- [x] Agregar menu hamburguesa para mobile.
+- [x] Agregar paginas de Terminos y condiciones y Politica de privacidad.
+- [x] Aplicar animaciones fade-in con libreria.
 - [x] Preparar SEO tecnico inicial con metadata por pagina.
 
 ## Fase 5 - Auth y panel base
@@ -89,7 +95,8 @@ Fase 1 - Inicializacion tecnica del repositorio:
 - [ ] Definir motor de generacion Word/PDF.
 - [ ] Integrar DocuSign.
 - [ ] Integrar WhatsApp Business API.
-- [ ] Integrar SMTP.
+- [x] Preparar integracion SMTP inicial para formulario publico.
+- [ ] Configurar proveedor SMTP real y validar entrega.
 - [ ] Integrar Google Calendar.
 
 ## Fase 8 - Reportes, seguridad y QA

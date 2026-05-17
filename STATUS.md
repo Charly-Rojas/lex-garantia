@@ -4,7 +4,7 @@
 
 Fecha: 2026-05-17
 
-El proyecto Lex Garantia ya cuenta con inicializacion tecnica base: Next.js App Router, TypeScript, Tailwind CSS, ESLint, Supabase CLI inicializado y paginas institucionales iniciales.
+El proyecto Lex Garantia ya cuenta con inicializacion tecnica base: Next.js App Router, TypeScript, Tailwind CSS, ESLint, Supabase CLI inicializado y sitio institucional publico ampliado.
 
 ## Hechos verificados
 
@@ -49,7 +49,7 @@ El proyecto Lex Garantia ya cuenta con inicializacion tecnica base: Next.js App 
 - No trabajar directo sobre `main`.
 - No actualizar `../MIGRACION_DEVUS_VPS.md` hasta que exista cambio funcional u operativo real en VPS.
 - No versionar toda la carpeta `/docs`; solo assets web copiados a `public/brand/`.
-- No implementar Auth, CMS, formularios conectados ni panel privado en este paso.
+- No implementar Auth, CMS ni panel privado en este paso.
 
 ## Comandos ejecutados en Paso 2
 
@@ -63,21 +63,43 @@ supabase link --project-ref hrtnmzldgagchajhoygd
 supabase projects list
 npm run lint
 npm run build
+npm install motion nodemailer lucide-react
+npm install -D @types/nodemailer
 ```
+
+## Cambios del sitio publico en este bloque
+
+- Se agrego formulario de contacto con Server Action y envio SMTP configurable.
+- El formulario envia correo a `contacto@lexgarantia.com` y confirmacion de recepcion al solicitante cuando SMTP esta configurado.
+- Se agregaron variables SMTP en `.env.example` sin secretos reales.
+- Se agregaron enlaces `mailto:`, `tel:`, WhatsApp y Google Maps.
+- Se agrego boton fijo de WhatsApp en todas las paginas.
+- Se agrego menu hamburguesa en mobile.
+- Se agregaron paginas `/terminos-y-condiciones` y `/politica-de-privacidad`.
+- Se agregaron animaciones fade-in con `motion`.
+- Se elimino la seccion "Sistema en crecimiento" del home.
+- Se cambio el favicon a un recorte redondeado del logotipo.
+- Se cambio el logo del hero por una version con fondo transparente.
+- Se elimino `.next/` para limpiar cache local antes de regenerar build.
 
 ## Validaciones
 
 - `npm run lint`: exitoso.
 - `npm run build`: exitoso.
-- Rutas generadas en build: `/`, `/contacto`, `/nosotros`, `/servicios`.
+- Rutas generadas en build: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`.
 - Supabase CLI muestra `lex-garantia` como proyecto linkeado.
 - Dev server levantado con `npm run dev` en `http://localhost:3000`.
 - Verificacion en navegador con Playwright CLI:
   - `/`: carga con contenido principal y sin overlay de error.
   - `/nosotros`: carga contenido institucional.
   - `/servicios`: carga servicios.
-  - `/contacto`: carga datos de contacto.
+  - `/contacto`: carga formulario, datos de contacto, enlaces directos y ubicaciones con mapas.
+  - `/terminos-y-condiciones`: carga contenido legal.
+  - `/politica-de-privacidad`: carga contenido de privacidad.
+  - Menu mobile abre y muestra navegacion.
+  - Boton fijo de WhatsApp visible.
   - Consola solo mostro mensajes informativos de React DevTools y HMR.
+- El envio real de correo no se valido porque faltan credenciales SMTP reales.
 - No se crearon tablas ni migraciones de negocio definitivas.
 - `.env.example` contiene placeholders sin secretos reales.
 
@@ -88,6 +110,7 @@ npm run build
 - Falta definir puerto local para Next.js.
 - Falta confirmar proyectos Supabase dev/prod.
 - Falta confirmar proveedores y credenciales para DocuSign, WhatsApp, SMTP y Google Calendar.
+- Falta configurar proveedor SMTP real, SPF, DKIM y DMARC para validar entrega desde `contacto@lexgarantia.com`.
 - Falta confirmar plantillas Word finales.
 - Falta confirmar aviso de privacidad y textos LFPDPPP.
 - Falta confirmar licencia/archivos web de Gordita.
@@ -95,4 +118,4 @@ npm run build
 
 ## Siguiente paso
 
-Revisar visualmente el sitio institucional inicial, decidir si se empuja `feature/project-initialization` al remoto y planear el siguiente bloque: formulario de contacto, CMS o Auth/panel base.
+Revisar visualmente el sitio institucional ampliado, decidir si se empuja `feature/project-initialization` al remoto y planear el siguiente bloque: SMTP real, CMS o Auth/panel base.

@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 md:grid-cols-[1fr_1.5fr] md:px-8">
         <div>
           <Image
-            src="/brand/lex-garantia-logo-positive.jpeg"
+            src="/brand/lex-garantia-logo-positive-transparent.png"
             alt="Lex Garantía Arrendamiento"
             width={88}
             height={88}
@@ -33,14 +33,49 @@ export function Footer() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                className="transition-colors hover:text-brand-blue"
+                href="/terminos-y-condiciones"
+              >
+                Términos y condiciones
+              </Link>
+              <Link
+                className="transition-colors hover:text-brand-blue"
+                href="/politica-de-privacidad"
+              >
+                Política de privacidad
+              </Link>
             </div>
           </div>
           <div>
             <h2 className="text-sm font-semibold text-brand-blue">Contacto</h2>
             <div className="mt-3 space-y-2 text-sm leading-6 text-brand-gray">
-              <p>{siteConfig.contact.email}</p>
-              <p>Tel. {siteConfig.contact.phone}</p>
-              <p>WhatsApp {siteConfig.contact.whatsapp}</p>
+              <p>
+                <a
+                  className="transition-colors hover:text-brand-blue"
+                  href={siteConfig.contact.mailHref}
+                >
+                  {siteConfig.contact.email}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="transition-colors hover:text-brand-blue"
+                  href={siteConfig.contact.phoneHref}
+                >
+                  Tel. {siteConfig.contact.phone}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="transition-colors hover:text-brand-blue"
+                  href={siteConfig.contact.whatsappHref}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  WhatsApp {siteConfig.contact.whatsapp}
+                </a>
+              </p>
             </div>
           </div>
         </div>

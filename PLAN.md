@@ -97,7 +97,7 @@ Pasos:
 
 ## Fase 4 - Sitio institucional MVP
 
-Estado: primera version implementada.
+Estado: primera version implementada y ampliada.
 
 Objetivo:
 
@@ -110,7 +110,14 @@ Contenido inicial:
 - Servicios.
 - Ventajas.
 - Contacto.
-- Formularios de lead pendientes.
+- Formulario publico de contacto con envio SMTP configurable.
+- Confirmacion de recepcion por correo al solicitante.
+- Enlaces directos a correo, telefono, WhatsApp y Google Maps.
+- Boton fijo de WhatsApp en todas las paginas.
+- Menu hamburguesa en mobile.
+- Terminos y condiciones.
+- Politica de privacidad.
+- Animaciones fade-in con `motion`.
 - SEO basico.
 
 Fuente:
@@ -157,7 +164,7 @@ Integraciones:
 
 - DocuSign.
 - WhatsApp Business API.
-- SMTP transaccional.
+- SMTP transaccional: base tecnica preparada para formulario publico; falta proveedor real y validacion de entrega.
 - Google Calendar.
 
 ## Fase 8 - Reportes, seguridad y QA
@@ -201,3 +208,4 @@ Vercel:
 - Confirmar proveedor de CMS o CMS propio con Supabase.
 - Confirmar prioridad exacta entre sitio institucional y panel operativo en la fase de desarrollo.
 - Confirmar si se debe empujar `feature/project-initialization` al remoto.
+- Confirmar proveedor SMTP, credenciales, SPF, DKIM y DMARC para `contacto@lexgarantia.com`.

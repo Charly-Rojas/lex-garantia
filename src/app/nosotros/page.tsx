@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export const metadata: Metadata = {
@@ -12,17 +13,17 @@ export default function NosotrosPage() {
   return (
     <div className="py-16 md:py-20">
       <section className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[0.95fr_1.05fr] md:px-8">
-        <div className="flex items-start justify-center bg-neutral-soft p-8">
+        <FadeIn className="flex items-start justify-center p-4 md:p-8">
           <Image
-            src="/brand/lex-garantia-logo-positive.jpeg"
+            src="/brand/lex-garantia-logo-positive-transparent.png"
             alt="Logotipo de Lex Garantía Arrendamiento"
             width={420}
             height={420}
             priority
             className="h-auto w-full max-w-sm"
           />
-        </div>
-        <div>
+        </FadeIn>
+        <FadeIn delay={0.08}>
           <SectionHeading
             eyebrow="¿Quiénes somos?"
             title="Despacho especializado en pólizas jurídicas para arrendamiento"
@@ -41,7 +42,7 @@ export default function NosotrosPage() {
               de experiencia y profesionalismo.
             </p>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </div>
   );

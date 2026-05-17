@@ -34,18 +34,20 @@ Despues de cambios funcionales u operativos en el VPS, registrar en `../MIGRACIO
 
 ## Fase actual
 
-El proyecto esta en fase de inicializacion tecnica con sitio institucional base.
+El proyecto esta en fase de sitio institucional publico sobre la base tecnica inicial.
 
 Ya existe:
 
 - App Next.js con App Router, TypeScript, Tailwind CSS, ESLint, `src/` y alias `@/*`.
 - Estructura Supabase local creada con Supabase CLI.
 - Link CLI al proyecto remoto `lex-garantia` (`hrtnmzldgagchajhoygd`).
-- Paginas institucionales iniciales: Inicio, Nosotros, Servicios y Contacto.
+- Paginas institucionales: Inicio, Nosotros, Servicios, Contacto, Terminos y condiciones, Politica de privacidad.
+- Formulario publico de contacto via Server Action y SMTP, con correo de confirmacion al solicitante.
+- Boton fijo de WhatsApp y enlaces directos de correo, telefono, WhatsApp y mapas.
 
 En esta fase aun no se debe:
 
-- Implementar Auth, CMS, formularios conectados ni panel privado.
+- Implementar Auth, CMS ni panel privado.
 - Crear tablas finales complejas.
 - Aplicar migraciones de negocio definitivas.
 - Usar credenciales reales en archivos versionados.
@@ -61,6 +63,8 @@ npx create-next-app@latest . --yes --force --typescript --tailwind --eslint --ap
 Usar App Router. Mantener Server Components por defecto y marcar como `'use client'` solo componentes que realmente necesiten estado, eventos o APIs del navegador.
 
 Si se agregan clientes de base de datos, Redis, email u otros SDKs, inicializarlos de forma lazy dentro de funciones getter, no en scope global del modulo, para evitar fallos durante `next build`.
+
+El formulario de contacto usa SMTP mediante variables de entorno. No hardcodear credenciales. La ausencia de credenciales reales no debe romper `next build`.
 
 ## Stack base decidido
 

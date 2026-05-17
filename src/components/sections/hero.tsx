@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
+import { FadeIn } from "@/components/ui/fade-in";
 
 type HeroAction = {
   href: string;
@@ -24,7 +25,7 @@ export function Hero({
   return (
     <section className="bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
-        <div className="flex flex-col justify-center">
+        <FadeIn className="flex flex-col justify-center">
           <p className="text-sm font-semibold uppercase text-brand-gray">
             {eyebrow}
           </p>
@@ -40,17 +41,17 @@ export function Hero({
               {secondaryAction.label}
             </ButtonLink>
           </div>
-        </div>
-        <div className="flex items-center justify-center bg-neutral-soft p-8">
+        </FadeIn>
+        <FadeIn className="flex items-center justify-center p-4 md:p-8" delay={0.08}>
           <Image
-            src="/brand/lex-garantia-logo-positive.jpeg"
+            src="/brand/lex-garantia-logo-positive-transparent.png"
             alt="Logotipo de Lex Garantía Arrendamiento"
             width={520}
             height={520}
             priority
             className="h-auto w-full max-w-md"
           />
-        </div>
+        </FadeIn>
       </div>
     </section>
   );
