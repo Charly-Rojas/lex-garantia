@@ -20,6 +20,9 @@ function requiredEnv(name: string) {
 
 function getTransport() {
   const port = Number(process.env.SMTP_PORT ?? "587");
+  const tlsServername = process.env.SMTP_TLS_SERVERNAME;
+  const rejectUnauthorized =
+    process.env.SMTP_TLS_REJECT_UNAUTHORIZED !== "false";
 
   if (!Number.isInteger(port)) {
     throw new Error("Invalid SMTP_PORT");
@@ -33,6 +36,13 @@ function getTransport() {
       user: requiredEnv("SMTP_USER"),
       pass: requiredEnv("SMTP_PASSWORD"),
     },
+    tls:
+      tlsServername || process.env.SMTP_TLS_REJECT_UNAUTHORIZED
+        ? {
+            rejectUnauthorized,
+            servername: tlsServername,
+          }
+        : undefined,
   });
 }
 
