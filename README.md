@@ -4,7 +4,7 @@ Aplicación Next.js para el sitio institucional y futura plataforma de gestión 
 
 ## Estado
 
-Paso 2 inicializado:
+Publicado:
 
 - Next.js App Router con TypeScript, Tailwind CSS, ESLint, `src/` y alias `@/*`.
 - Supabase CLI inicializado.
@@ -15,6 +15,8 @@ Paso 2 inicializado:
 - Menú mobile con hamburguesa y animaciones fade-in con `motion`.
 - SEO técnico: metadata, canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots y manifest.
 - Identidad visual aplicada desde `BRAND.md`.
+- Producción: `https://lexgarantia.com`.
+- Dev: `https://dev-env.lexgarantia.com`.
 
 ## Requisitos
 
@@ -130,6 +132,13 @@ Rama actual de este paso:
 
 ```text
 feature/project-initialization
+```
+
+Despliegue VPS:
+
+```text
+main -> lexgarantia.com -> lex-garantia-prod.service -> 127.0.0.1:3100
+dev  -> dev-env.lexgarantia.com -> lex-garantia-dev.service -> 127.0.0.1:3101
 ```
 
 ## Documentación

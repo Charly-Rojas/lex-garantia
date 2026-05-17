@@ -195,11 +195,13 @@ Objetivo:
 
 VPS:
 
-- Confirmar Virtual Server.
+- Produccion: `lexgarantia.com`, usuario `lexgarantia`, app en `/home/lexgarantia/apps/lex_garantia_prod/current`, puerto local `3100`, servicio `lex-garantia-prod.service`.
+- Dev: `dev-env.lexgarantia.com`, usuario `lexgdev`, app en `/home/lexgdev/apps/lex_garantia_dev/current`, puerto local `3101`, servicio `lex-garantia-dev.service`.
 - App fuera de `public_html`.
-- Servicio systemd.
-- Reverse proxy local.
+- Reverse proxy Apache configurado por Virtualmin hacia `127.0.0.1`.
 - SSL con Virtualmin/Let's Encrypt.
+- Variables separadas por ambiente en `shared/.env`.
+- Dev queda `noindex`; produccion queda indexable.
 
 Vercel:
 

@@ -52,6 +52,19 @@ Resultados de Paso 2:
 - Produccion debe quedar indexable; dev debe quedar `noindex`.
   - Sin overlay de error de Next.js.
 
+Resultados de despliegue VPS:
+
+- GitHub publicado: `main`, `dev`, `feature/project-initialization`, `feature/bootstrap-docs`.
+- VPS prod responde en `https://lexgarantia.com`.
+- VPS dev responde en `https://dev-env.lexgarantia.com`.
+- Apache reverse proxy responde con Next.js en ambos dominios.
+- Servicios activos: `lex-garantia-prod.service`, `lex-garantia-dev.service`.
+- Puertos locales activos: `127.0.0.1:3100`, `127.0.0.1:3101`.
+- `robots.txt` prod permite indexacion y usa sitemap de `https://lexgarantia.com/sitemap.xml`.
+- `robots.txt` dev tiene `Disallow: /`.
+- Formulario de contacto validado con SMTP autenticado local.
+- Confirmacion externa de prueba aceptada por Gmail, cola Postfix vacia.
+
 Validar manualmente:
 
 - Home publica carga sin errores.

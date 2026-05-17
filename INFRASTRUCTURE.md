@@ -20,28 +20,25 @@ Antes de cualquier cambio operativo leer:
 
 Estado conocido:
 
-- `lexgarantia.com` fue revisado en contexto DNS/Virtualmin, pero no quedo considerado como migrado/listo.
-- No tratar `lexgarantia.com` como cerrado hasta confirmar Virtual Server, DNS, correo, SSL y usuario/home.
+- `lexgarantia.com` ya tiene Virtual Server en Virtualmin para produccion.
+- `dev-env.lexgarantia.com` ya tiene Virtual Server separado en Virtualmin para dev.
+- Queda pendiente ajustar DNS de correo en Cloudflare y, si se desea relay transaccional, verificar `lexgarantia.com` en SMTP2GO o configurar otro proveedor SMTP autenticado.
 
 ## Dominio y Virtualmin
 
-Antes de desplegar:
+Virtual servers actuales:
 
-```bash
-virtualmin list-domains
-virtualmin list-users --domain lexgarantia.com
-virtualmin list-databases --domain lexgarantia.com
+```text
+lexgarantia.com          usuario: lexgarantia  app: /home/lexgarantia/apps/lex_garantia_prod/current  puerto: 3100
+dev-env.lexgarantia.com  usuario: lexgdev      app: /home/lexgdev/apps/lex_garantia_dev/current      puerto: 3101
 ```
 
-Confirmar:
+Servicios systemd:
 
-- Si existe Virtual Server `lexgarantia.com`.
-- Usuario Unix asignado.
-- Home real.
-- Document root real.
-- Estado de correo.
-- SSL vigente.
-- DNS en Cloudflare.
+```text
+lex-garantia-prod.service
+lex-garantia-dev.service
+```
 
 ## Ruta de aplicacion
 
@@ -172,6 +169,34 @@ CONTACT_EMAIL_TO
 ```
 
 El remitente previsto es `contacto@lexgarantia.com`. Antes de produccion se debe confirmar que el proveedor SMTP permite enviar desde ese dominio y que SPF/DKIM/DMARC estan correctamente publicados.
+
+Estado actual:
+
+- Buzon `contacto@lexgarantia.com` creado en Virtualmin.
+- App configurada para autenticar SMTP contra Postfix local con `SMTP_HOST=127.0.0.1` y `SMTP_TLS_SERVERNAME=server.devus.mx`.
+- OpenDKIM firma `lexgarantia.com` con selector `202604`.
+- SMTP2GO rechazo `lexgarantia.com` porque el dominio no esta verificado en el panel de SMTP2GO. Se retiro el mapeo de relay para evitar rebotes inmediatos.
+- Postfix envio una confirmacion de prueba a Gmail por entrega directa y Gmail la acepto; aun asi, para produccion estable se recomienda verificar `lexgarantia.com` en SMTP2GO o usar un proveedor transaccional dedicado.
+
+DNS de Cloudflare pendiente para correo:
+
+```text
+A      @                  193.46.199.28        Proxied
+CNAME  www                lexgarantia.com      Proxied
+A      dev-env            193.46.199.28        Proxied
+A      mail               193.46.199.28        DNS only
+MX     @                  mail.lexgarantia.com  prioridad 10
+TXT    @                  v=spf1 a mx ip4:193.46.199.28 ~all
+TXT    _dmarc             v=DMARC1; p=none; rua=mailto:contacto@lexgarantia.com; adkim=s; aspf=s
+TXT    202604._domainkey  v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2FmAvfI9x03DZZsyYF0Yo3a0lKaw7xU7qmeq9EmaNjpCyN4nTjeY2iKdPgreDEzfrqTt14YKD317Hn+z7suVZca2CasEfCBCt/niIo4TMWi+wEjbnczQBga6+LP7FpfWOnfVx/6fKmw6zq9tt+zze5HXIremLo++RFCtiTIm3m4zMvr4rIHWX/covWrPwfj8LsZuAtHKm5ZmVCEvFFegLPuOXdEEgp49hW2S1XcLAEB2SA8OMk3RQ0obzlnmDdSUMAALcmkaCQet0fNi+xhQ13DUrSjbZ/r6i99HgYn2eP58e9aRIKObec/ExoAs+geUK2qgRbOPzdNCFi09RIWfvwIDAQAB
+```
+
+Reglas Cloudflare:
+
+- `mail` debe estar en DNS only. No usar proxy naranja para SMTP/IMAP/POP.
+- El MX debe apuntar a `mail.lexgarantia.com`, no al apex proxied.
+- Si `ftp` se conserva, ponerlo DNS only; si no se usa, eliminarlo.
+- Si se verifica `lexgarantia.com` en SMTP2GO, actualizar SPF para incluir el include que indique SMTP2GO.
 
 ## Supabase CLI e infraestructura de datos
 

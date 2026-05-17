@@ -4,25 +4,26 @@
 
 Fecha: 2026-05-17
 
-El proyecto Lex Garantia ya cuenta con inicializacion tecnica base: Next.js App Router, TypeScript, Tailwind CSS, ESLint, Supabase CLI inicializado y sitio institucional publico ampliado.
+El proyecto Lex Garantia ya esta publicado en GitHub y desplegado en VPS con entornos separados para produccion y dev.
 
 ## Hechos verificados
 
 - Directorio del proyecto: `/home/charly/Documents/trabajo/DevUs/VPS/lex_garantia`.
 - El repo padre ignora `lex_garantia/`.
 - Existe repositorio Git local independiente en este directorio.
-- Rama activa: `feature/project-initialization`.
+- Rama activa local: `feature/project-initialization`.
 - Remote configurado: `git@github.com:Charly-Rojas/lex-garantia.git`.
-- Ramas locales creadas: `main`, `dev`, `feature/bootstrap-docs`.
-- `dev` fue actualizado con el commit documental de `feature/bootstrap-docs`.
-- La inicializacion tecnica se esta trabajando en `feature/project-initialization`.
+- Ramas publicadas en GitHub: `main`, `dev`, `feature/project-initialization`, `feature/bootstrap-docs`.
+- Commit desplegado: `4d64789`.
 - Supabase CLI instalado: `2.84.2`.
 - Node instalado: `22.20.0`.
 - npm/npx instalados: `11.6.2`.
 - Next.js instalado: `16.2.6`.
 - React instalado: `19.2.4`.
 - Supabase remoto linkeado: `lex-garantia` (`hrtnmzldgagchajhoygd`), East US (Ohio), org `txvmtisygjdnymrdgqak`.
-- `lexgarantia.com` no esta confirmado como migrado/listo en Virtualmin.
+- Produccion VPS: `https://lexgarantia.com`, usuario `lexgarantia`, puerto local `3100`, servicio `lex-garantia-prod.service`.
+- Dev VPS: `https://dev-env.lexgarantia.com`, usuario `lexgdev`, puerto local `3101`, servicio `lex-garantia-dev.service`.
+- Buzon creado: `contacto@lexgarantia.com`.
 
 ## Documentacion creada
 
@@ -83,6 +84,10 @@ npm install -D @types/nodemailer
 - Se elimino `.next/` para limpiar cache local antes de regenerar build.
 - Se agrego SEO tecnico: metadata, canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots, manifest e imagen OG.
 - Se preparo separacion SEO por ambiente: produccion indexable y dev `noindex`.
+- Se publico GitFlow en remoto: `main`, `dev` y ramas feature.
+- Se desplegaron entornos separados en VPS con Apache reverse proxy y systemd.
+- Se configuraron variables `.env` locales y remotas sin versionarlas.
+- Se configuro SMTP local autenticado para el formulario.
 
 ## Validaciones
 
@@ -104,15 +109,20 @@ npm install -D @types/nodemailer
 - El envio real de correo no se valido porque faltan credenciales SMTP reales.
 - No se crearon tablas ni migraciones de negocio definitivas.
 - `.env.example` contiene placeholders sin secretos reales.
+- `https://lexgarantia.com`: responde 200 por Cloudflare.
+- `https://www.lexgarantia.com`: responde 200 por Cloudflare.
+- `https://dev-env.lexgarantia.com`: responde 200 por Cloudflare.
+- `https://lexgarantia.com/robots.txt`: permite indexacion.
+- `https://dev-env.lexgarantia.com/robots.txt`: `Disallow: /`.
+- Formulario de contacto en produccion: prueba exitosa, muestra mensaje de recepcion.
+- Postfix: confirmacion externa a Gmail aceptada, cola vacia.
 
 ## Riesgos / pendientes
 
-- Falta confirmar usuario/home de Virtualmin para `lexgarantia.com`.
-- Falta confirmar Apache vs Nginx real para reverse proxy.
-- Falta definir puerto local para Next.js.
 - Falta confirmar proyectos Supabase dev/prod.
-- Falta confirmar proveedores y credenciales para DocuSign, WhatsApp, SMTP y Google Calendar.
-- Falta configurar proveedor SMTP real, SPF, DKIM y DMARC para validar entrega desde `contacto@lexgarantia.com`.
+- Falta configurar DNS de correo en Cloudflare: `mail` DNS only, MX a `mail.lexgarantia.com`, SPF, DKIM y DMARC.
+- SMTP2GO rechazo `lexgarantia.com` porque el dominio no esta verificado en su panel; falta verificarlo o elegir proveedor SMTP transaccional definitivo.
+- Falta confirmar proveedores y credenciales para DocuSign, WhatsApp y Google Calendar.
 - Falta confirmar plantillas Word finales.
 - Falta confirmar aviso de privacidad y textos LFPDPPP.
 - Falta confirmar licencia/archivos web de Gordita.
@@ -120,4 +130,4 @@ npm install -D @types/nodemailer
 
 ## Siguiente paso
 
-Revisar visualmente el sitio institucional ampliado, decidir si se empuja `feature/project-initialization` al remoto y planear el siguiente bloque: SMTP real, CMS o Auth/panel base.
+Terminar ajustes DNS en Cloudflare y verificar recepcion real de correo en bandeja/spam. Despues, decidir si el siguiente bloque sera CMS, Auth/panel base o integracion SMTP transaccional definitiva.

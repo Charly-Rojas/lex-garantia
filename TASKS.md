@@ -111,11 +111,15 @@ Fase 1 - Inicializacion tecnica del repositorio:
 
 ## Fase 9 - Infraestructura
 
-- [ ] Confirmar Virtual Server de `lexgarantia.com`.
-- [ ] Confirmar usuario/home Virtualmin.
-- [ ] Elegir puerto local.
-- [ ] Configurar servicio systemd.
-- [ ] Configurar reverse proxy real.
-- [ ] Emitir/validar SSL.
-- [ ] Validar logs y respuesta publica.
+- [x] Confirmar Virtual Server de `lexgarantia.com`.
+- [x] Crear Virtual Server de `dev-env.lexgarantia.com`.
+- [x] Confirmar usuario/home Virtualmin.
+- [x] Elegir puertos locales: prod `3100`, dev `3101`.
+- [x] Configurar servicios systemd separados.
+- [x] Configurar reverse proxy Apache gestionado por Virtualmin.
+- [x] Emitir/validar SSL.
+- [x] Validar logs y respuesta publica.
+- [x] Crear buzon `contacto@lexgarantia.com`.
+- [ ] Corregir DNS de correo en Cloudflare.
+- [ ] Verificar `lexgarantia.com` en SMTP2GO o configurar SMTP transaccional definitivo.
 - [ ] Preparar migracion a Vercel.
