@@ -14,7 +14,7 @@ El proyecto Lex Garantia ya esta publicado en GitHub y desplegado en VPS con ent
 - Rama activa local: `feature/project-initialization`.
 - Remote configurado: `git@github.com:Charly-Rojas/lex-garantia.git`.
 - Ramas publicadas en GitHub: `main`, `dev`, `feature/project-initialization`, `feature/bootstrap-docs`.
-- Commit desplegado: `4d64789`.
+- Commit desplegado: `9a8a10a`.
 - Supabase CLI instalado: `2.84.2`.
 - Node instalado: `22.20.0`.
 - npm/npx instalados: `11.6.2`.
