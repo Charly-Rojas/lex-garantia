@@ -21,6 +21,7 @@ export async function submitContactForm(
   const email = normalize(formData.get("email"));
   const phone = normalize(formData.get("phone"));
   const message = normalize(formData.get("message"));
+  const privacyAccepted = formData.get("privacyAccepted") === "on";
 
   if (!name || !email || !message) {
     return {
@@ -33,6 +34,13 @@ export async function submitContactForm(
     return {
       status: "error",
       message: "Ingresa un correo electrónico válido.",
+    };
+  }
+
+  if (!privacyAccepted) {
+    return {
+      status: "error",
+      message: "Acepta el aviso de privacidad para enviar tu solicitud.",
     };
   }
 

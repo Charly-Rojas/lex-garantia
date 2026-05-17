@@ -1,17 +1,23 @@
-import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function WhatsAppButton() {
   return (
     <a
       aria-label={`Abrir WhatsApp de Lex Garantía ${siteConfig.contact.whatsapp}`}
-      className="fixed bottom-4 right-4 z-50 inline-flex min-h-12 items-center gap-2 border border-brand-blue bg-brand-blue px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors visited:text-white hover:bg-[#142635] hover:text-white"
+      className="fixed bottom-4 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#25d366] bg-[#25d366] shadow-sm transition-colors hover:bg-[#1ebe5d]"
       href={siteConfig.contact.whatsappHref}
       rel="noreferrer"
       target="_blank"
     >
-      <MessageCircle aria-hidden="true" className="h-5 w-5" />
-      <span>WhatsApp {siteConfig.contact.whatsapp}</span>
+      <span
+        aria-hidden="true"
+        className="h-7 w-7 bg-white"
+        style={{
+          WebkitMask:
+            "url('/icons/whatsapp-brands-solid-full.svg') center / contain no-repeat",
+          mask: "url('/icons/whatsapp-brands-solid-full.svg') center / contain no-repeat",
+        }}
+      />
     </a>
   );
 }

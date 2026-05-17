@@ -14,7 +14,7 @@ El proyecto Lex Garantia ya esta publicado en GitHub y desplegado en VPS con ent
 - Rama activa local: `feature/project-initialization`.
 - Remote configurado: `git@github.com:Charly-Rojas/lex-garantia.git`.
 - Ramas publicadas en GitHub: `main`, `dev`, `feature/project-initialization`, `feature/bootstrap-docs`.
-- Commit desplegado: `9a8a10a`.
+- Despliegue VPS actualiza produccion desde `main` y dev desde `dev`.
 - Supabase CLI instalado: `2.84.2`.
 - Node instalado: `22.20.0`.
 - npm/npx instalados: `11.6.2`.
@@ -88,6 +88,10 @@ npm install -D @types/nodemailer
 - Se desplegaron entornos separados en VPS con Apache reverse proxy y systemd.
 - Se configuraron variables `.env` locales y remotas sin versionarlas.
 - Se configuro SMTP local autenticado para el formulario.
+- Se corrigio el color de texto de botones primarios para que permanezca blanco.
+- Se reemplazo el boton fijo de WhatsApp por un boton circular verde solo con icono blanco desde `public/icons/whatsapp-brands-solid-full.svg`.
+- Se agrego casilla obligatoria de aviso de privacidad en el formulario de contacto.
+- Se cambio el texto introductorio del formulario a "Déjanos un mensaje, y nos pondrémos en contacto contigo."
 
 ## Validaciones
 
@@ -116,6 +120,12 @@ npm install -D @types/nodemailer
 - `https://dev-env.lexgarantia.com/robots.txt`: `Disallow: /`.
 - Formulario de contacto en produccion: prueba exitosa, muestra mensaje de recepcion.
 - Postfix: confirmacion externa a Gmail aceptada, cola vacia.
+- Ajuste visual/contacto:
+  - `npm run lint`: exitoso.
+  - `npm run build`: exitoso.
+  - Playwright local: botones primarios `Contactar`, `Ir a contacto` y submit renderizan texto blanco.
+  - Playwright local: boton fijo de WhatsApp no tiene texto visible, usa fondo verde y radio circular.
+  - Playwright local: formulario muestra texto actualizado y checkbox obligatorio `privacyAccepted`.
 
 ## Riesgos / pendientes
 

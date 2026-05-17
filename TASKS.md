@@ -73,6 +73,10 @@ Fase 1 - Inicializacion tecnica del repositorio:
 - [x] Aplicar animaciones fade-in con libreria.
 - [x] Preparar SEO tecnico inicial con metadata por pagina.
 - [x] Agregar canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots y manifest.
+- [x] Corregir contraste de botones primarios con texto blanco.
+- [x] Reemplazar boton fijo de WhatsApp por icono blanco circular sobre fondo verde.
+- [x] Agregar casilla obligatoria de aviso de privacidad al formulario de contacto.
+- [x] Ajustar texto introductorio del formulario de contacto.
 
 ## Fase 5 - Auth y panel base
 

@@ -21,8 +21,7 @@ export function ContactForm() {
         Enviar mensaje
       </h2>
       <p className="mt-2 text-sm leading-6 text-brand-gray">
-        Tu mensaje se enviará a contacto@lexgarantia.com y recibirás una
-        confirmación de recepción en tu correo.
+        Déjanos un mensaje, y nos pondrémos en contacto contigo.
       </p>
 
       <div className="mt-6 grid gap-4">
@@ -64,25 +63,32 @@ export function ContactForm() {
         </label>
       </div>
 
+      <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-brand-gray">
+        <input
+          className="mt-1 h-4 w-4 shrink-0 accent-brand-blue"
+          name="privacyAccepted"
+          required
+          type="checkbox"
+        />
+        <span>
+          Acepto el{" "}
+          <Link
+            className="font-semibold text-brand-blue hover:underline"
+            href="/politica-de-privacidad"
+          >
+            aviso de privacidad
+          </Link>
+          .
+        </span>
+      </label>
+
       <button
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center border border-brand-blue bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#142635] hover:text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center border border-brand-blue bg-brand-blue px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[#142635] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         disabled={isPending}
         type="submit"
       >
         {isPending ? "Enviando..." : "Enviar mensaje"}
       </button>
-
-      <p className="mt-4 text-xs leading-5 text-brand-gray">
-        Al enviar este formulario aceptas el tratamiento de tus datos conforme a
-        la{" "}
-        <Link
-          className="font-semibold text-brand-blue hover:underline"
-          href="/politica-de-privacidad"
-        >
-          política de privacidad
-        </Link>
-        .
-      </p>
 
       {state.message ? (
         <p
