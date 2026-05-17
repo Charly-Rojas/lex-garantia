@@ -28,7 +28,7 @@ Entregables:
 
 ## Fase 1 - Inicializacion tecnica
 
-Estado: parcialmente ejecutada.
+Estado: completada localmente.
 
 Objetivo:
 
@@ -39,19 +39,21 @@ Objetivo:
 Ejecutado:
 
 - Repositorio Git local inicializado.
-- Rama activa `feature/bootstrap-docs`.
+- Rama activa de trabajo `feature/project-initialization`.
 - Remote `git@github.com:Charly-Rojas/lex-garantia.git` configurado.
 - Commit base inicial creado.
 - Ramas `main` y `dev` creadas desde el commit base.
 - Documentacion raiz comprometida en `feature/bootstrap-docs`.
+- `dev` actualizado con el commit documental.
+- `feature/project-initialization` creada desde `dev`.
 
 Pendiente:
 
-1. Confirmar si los assets pesados de `/docs` se versionan.
-2. Crear `README.md` si se requiere entrada publica.
-3. Empujar ramas si se autoriza.
+1. Empujar ramas si se autoriza.
 
 ## Fase 2 - Next.js base
+
+Estado: completada localmente.
 
 Objetivo:
 
@@ -63,13 +65,21 @@ Comando previsto:
 npx create-next-app@latest . --yes --force --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --turbopack --use-npm
 ```
 
+Comando realmente usado por compatibilidad con CLI local:
+
+```bash
+npx create-next-app@latest /tmp/lex_garantia_next --yes --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --use-npm --disable-git
+```
+
 Validaciones:
 
-- `npm run lint`
-- `npm run build`
+- `npm run lint`: exitoso.
+- `npm run build`: exitoso.
 - No inicializar SDKs en scope global.
 
 ## Fase 3 - Supabase
+
+Estado: inicializacion CLI completada.
 
 Objetivo:
 
@@ -77,15 +87,17 @@ Objetivo:
 
 Pasos:
 
-1. Ejecutar `supabase init`.
-2. Crear `.env.example` sin secretos.
-3. Documentar variables reales fuera del repo.
-4. Definir modelo conceptual validado.
-5. Crear primeras migraciones SQL.
-6. Activar RLS desde el inicio.
-7. Crear seeds minimos solo si son necesarios.
+1. Ejecutado `supabase init --yes`.
+2. Ejecutado `supabase link --project-ref hrtnmzldgagchajhoygd`.
+3. Creado `.env.example` sin secretos.
+4. Creada carpeta `supabase/migrations` con `.gitkeep`.
+5. Creado `supabase/seed.sql` vacio con advertencia contra datos reales.
+6. Mantener modelo conceptual hasta validacion.
+7. Crear migraciones y RLS en la fase de modelo de datos.
 
 ## Fase 4 - Sitio institucional MVP
+
+Estado: primera version implementada.
 
 Objetivo:
 
@@ -98,7 +110,7 @@ Contenido inicial:
 - Servicios.
 - Ventajas.
 - Contacto.
-- Formularios de lead.
+- Formularios de lead pendientes.
 - SEO basico.
 
 Fuente:
@@ -186,8 +198,6 @@ Vercel:
 
 ## Open Questions
 
-- Confirmar si se deben versionar los assets pesados de `/docs`.
-- Confirmar si se debe empujar la fase documental ahora.
-- Confirmar si los archivos pesados en `/docs` deben versionarse en el repo independiente.
 - Confirmar proveedor de CMS o CMS propio con Supabase.
 - Confirmar prioridad exacta entre sitio institucional y panel operativo en la fase de desarrollo.
+- Confirmar si se debe empujar `feature/project-initialization` al remoto.

@@ -1,0 +1,2 @@
+-- Seed intentionally empty for the project initialization phase.
+-- Do not add real client, contract, document or personal data here.

@@ -34,19 +34,25 @@ Despues de cambios funcionales u operativos en el VPS, registrar en `../MIGRACIO
 
 ## Fase actual
 
-El proyecto esta en fase documental y de arquitectura inicial.
+El proyecto esta en fase de inicializacion tecnica con sitio institucional base.
 
-En esta fase:
+Ya existe:
 
-- No inicializar Next.js todavia.
-- No crear paginas, componentes ni codigo de aplicacion.
-- No ejecutar `supabase init` todavia.
-- No crear tablas finales complejas ni migraciones SQL finales.
-- Si se documentan modelos o flujos, mantenerlos a nivel conceptual hasta validar requerimientos.
+- App Next.js con App Router, TypeScript, Tailwind CSS, ESLint, `src/` y alias `@/*`.
+- Estructura Supabase local creada con Supabase CLI.
+- Link CLI al proyecto remoto `lex-garantia` (`hrtnmzldgagchajhoygd`).
+- Paginas institucionales iniciales: Inicio, Nosotros, Servicios y Contacto.
 
-## Generacion futura del proyecto Next.js
+En esta fase aun no se debe:
 
-Cuando se autorice iniciar la app Next.js, generar el proyecto aqui mismo:
+- Implementar Auth, CMS, formularios conectados ni panel privado.
+- Crear tablas finales complejas.
+- Aplicar migraciones de negocio definitivas.
+- Usar credenciales reales en archivos versionados.
+
+## Generacion / regeneracion del proyecto Next.js
+
+La app Next.js ya existe. No regenerarla salvo instruccion explicita. Si se requiere regenerar desde cero, usar la intencion tecnica siguiente y revisar antes la ayuda local de `create-next-app`, porque algunos flags cambian entre versiones:
 
 ```bash
 npx create-next-app@latest . --yes --force --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --turbopack --use-npm
@@ -219,3 +225,5 @@ Reglas:
 - El proyecto sera Next.js, pero la primera fase es solo documental. Decision: no ejecutar `create-next-app` hasta que el usuario autorice la siguiente fase.
 - Supabase sera backend principal, pero no se ejecutara `supabase init` todavia. Decision: documentar estrategia, ambientes, RLS y modelo conceptual antes de crear estructura local o migraciones.
 - El repositorio padre ignora `lex_garantia/`. Decision: inicializar y operar Git dentro de este directorio, con remoto propio y GitFlow independiente.
+- `create-next-app@latest` resolvio a `16.2.6` y la ayuda local ya no lista `--force` ni `--turbopack`. Decision: scaffoldear en `/tmp` con flags soportados, copiar la estructura generada al repo y preservar la intencion tecnica: App Router, TypeScript, Tailwind, ESLint, `src/`, alias y npm. El build resultante usa Turbopack por defecto en Next.js 16.2.6.
+- `/docs` contiene fuentes pesadas locales. Decision: no versionar toda la carpeta; solo copiar a `public/brand/` los logos web necesarios para la app.

@@ -7,19 +7,26 @@ Supabase sera el backend principal de Lex Garantia: Auth, PostgreSQL, Storage y 
 Estado actual:
 
 - Supabase CLI instalado: `2.84.2`.
-- No se ha ejecutado `supabase init`.
-- No existe carpeta `supabase/`.
-- No hay migraciones SQL.
+- Ejecutado `supabase init --yes`.
+- Carpeta `supabase/` creada.
+- Proyecto remoto linkeado con CLI:
+  - Nombre: `lex-garantia`
+  - Ref: `hrtnmzldgagchajhoygd`
+  - Region: East US (Ohio)
+  - Org: `txvmtisygjdnymrdgqak`
+- No hay migraciones SQL de negocio.
 
-## Inicializacion futura
+## Inicializacion realizada
 
-Cuando se autorice:
+Comandos ejecutados:
 
 ```bash
-supabase init
+supabase init --yes
+supabase link --project-ref hrtnmzldgagchajhoygd
+supabase projects list
 ```
 
-Estructura esperada:
+Estructura actual:
 
 ```text
 supabase/
@@ -35,6 +42,7 @@ Reglas:
 - Mantener cambios reproducibles desde cero.
 - Usar seeds solo para datos minimos de desarrollo.
 - No incluir datos reales de clientes en seeds.
+- `supabase/.temp/` queda ignorado por `supabase/.gitignore`.
 
 ## Ambientes
 
@@ -54,12 +62,18 @@ SUPABASE_JWT_SECRET
 SUPABASE_PROJECT_REF
 ```
 
+Valores no secretos conocidos:
+
+```text
+SUPABASE_PROJECT_REF=hrtnmzldgagchajhoygd
+```
+
 Notas:
 
 - `NEXT_PUBLIC_*` puede llegar al cliente.
 - `SUPABASE_SERVICE_ROLE_KEY` nunca debe exponerse al cliente.
 - `.env` y `.env.*` no se commitean.
-- Crear `.env.example` sin secretos cuando exista app.
+- `.env.example` existe con placeholders sin secretos.
 
 ## Auth
 
@@ -197,9 +211,16 @@ Principios:
 - SDK Supabase inicializado de forma lazy.
 - Evitar depender de variables runtime durante `next build` sin guardas.
 
+## Pendiente inmediato
+
+- Obtener y colocar en `.env` local los valores reales de `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+- Mantener `SUPABASE_SERVICE_ROLE_KEY` solo para servidor y nunca exponerlo al cliente.
+- Crear primera migracion de modelo solo despues de validar entidades, relaciones y RLS.
+- Definir buckets Storage reales antes de subir documentos.
+
 ## Open Questions
 
-- Proyectos Supabase dev/prod por crear o ya existentes.
+- Confirmar si `hrtnmzldgagchajhoygd` sera ambiente dev, prod o ambos temporalmente.
 - Region de Supabase.
 - Estrategia de backups y PITR segun plan contratado.
 - Reglas exactas de pertenencia por sucursal/organizacion.

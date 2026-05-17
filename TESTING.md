@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-No existe app Next.js ni codigo de aplicacion. Las validaciones actuales son documentales y de estructura.
+Existe app Next.js inicial con paginas institucionales y estructura Supabase CLI. Las validaciones obligatorias de esta fase son lint, build y navegacion basica.
 
 ## Validaciones de Fase 0
 
@@ -27,13 +27,25 @@ git remote -v
 
 ## Validaciones futuras de Next.js
 
-Cuando exista la app:
+Comandos obligatorios:
 
 ```bash
 npm run lint
 npm run build
 npm run dev
 ```
+
+Resultados de Paso 2:
+
+- `npm run lint`: exitoso.
+- `npm run build`: exitoso.
+- Rutas compiladas: `/`, `/contacto`, `/nosotros`, `/servicios`.
+- Navegacion en dev server verificada con Playwright CLI:
+  - Home con contenido visible.
+  - Nosotros con texto institucional.
+  - Servicios con cobertura juridica.
+  - Contacto con `contacto@lexgarantia.com`.
+  - Sin overlay de error de Next.js.
 
 Validar manualmente:
 
@@ -46,11 +58,11 @@ Validar manualmente:
 
 ## Validaciones futuras de Supabase
 
-Cuando se ejecute `supabase init`:
+Supabase CLI ya fue inicializado y linkeado.
 
 ```bash
 supabase status
-supabase start
+supabase projects list
 supabase db lint
 supabase db reset
 ```
@@ -63,6 +75,8 @@ Validar:
 - Politicas permiten solo acceso esperado por rol y pertenencia.
 - Storage restringe documentos privados.
 - Variables de entorno estan documentadas en `.env.example` sin secretos reales.
+
+Nota: `supabase db lint` y `supabase db reset` se ejecutaran cuando existan migraciones de negocio y entorno local Supabase activo.
 
 ## Pruebas manuales MVP
 

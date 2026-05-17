@@ -3,10 +3,10 @@
 ## Estado de fases
 
 - [x] Fase 0 - Documentacion base y arquitectura inicial.
-- [ ] Fase 1 - Inicializacion tecnica del repositorio.
-- [ ] Fase 2 - App Next.js base.
-- [ ] Fase 3 - Supabase local/dev/prod.
-- [ ] Fase 4 - Sitio institucional MVP.
+- [x] Fase 1 - Inicializacion tecnica del repositorio.
+- [x] Fase 2 - App Next.js base.
+- [x] Fase 3 - Supabase local/dev/prod.
+- [x] Fase 4 - Sitio institucional MVP.
 - [ ] Fase 5 - Auth, roles y panel base.
 - [ ] Fase 6 - Expedientes, partes e inmuebles.
 - [ ] Fase 7 - Contratos, documentos e integraciones.
@@ -34,36 +34,38 @@ Fase 1 - Inicializacion tecnica del repositorio:
 - [x] Crear commit base inicial.
 - [x] Crear ramas `main` y `dev` desde commit base.
 - [x] Crear commit documental en `feature/bootstrap-docs`.
-- [ ] Proteger mentalmente `main`: no trabajar directo ahi.
-- [ ] Confirmar si los assets pesados de `/docs` deben versionarse en el repo independiente.
-- [ ] Crear `README.md` si se requiere una entrada publica corta.
+- [x] Proteger mentalmente `main`: no trabajar directo ahi.
+- [x] No versionar `/docs` completo; versionar solo assets web necesarios en `public/brand/`.
+- [x] Crear `README.md`.
 - [ ] Empujar ramas al remoto si se autoriza.
 
 ## Fase 2 - Next.js base
 
-- [ ] Ejecutar `create-next-app` solo cuando se autorice.
-- [ ] Confirmar version de Next.js generada.
-- [ ] Verificar App Router, TypeScript, Tailwind, ESLint y alias `@/*`.
-- [ ] Ajustar estructura inicial sin crear features fuera de alcance.
-- [ ] Validar `npm run lint` y `npm run build`.
+- [x] Ejecutar `create-next-app` solo cuando se autorice.
+- [x] Confirmar version de Next.js generada: `16.2.6`.
+- [x] Verificar App Router, TypeScript, Tailwind, ESLint y alias `@/*`.
+- [x] Ajustar estructura inicial sin crear features fuera de alcance.
+- [x] Validar `npm run lint` y `npm run build`.
 
 ## Fase 3 - Supabase
 
-- [ ] Ejecutar `supabase init` solo cuando se autorice.
-- [ ] Definir ambientes local/dev/prod.
-- [ ] Crear `.env.example` sin secretos.
-- [ ] Documentar variables reales fuera del repo.
-- [ ] Modelar entidades conceptuales antes de migraciones.
-- [ ] Crear primeras migraciones SQL solo despues de validar modelo.
-- [ ] Activar RLS desde el inicio.
+- [x] Ejecutar `supabase init` solo cuando se autorice.
+- [x] Linkear proyecto remoto `lex-garantia` (`hrtnmzldgagchajhoygd`) con Supabase CLI.
+- [x] Definir ambientes local/dev/prod a nivel documental.
+- [x] Crear `.env.example` sin secretos.
+- [x] Documentar variables reales fuera del repo.
+- [x] Mantener modelo conceptual antes de migraciones.
+- [x] No crear migraciones SQL de negocio en este paso.
+- [x] Documentar RLS como requisito desde el inicio.
 
 ## Fase 4 - Sitio institucional MVP
 
-- [ ] Definir mapa de contenidos.
-- [ ] Implementar Inicio, Nosotros, Servicios, Ventajas y Contacto.
-- [ ] Aplicar `BRAND.md`.
+- [x] Definir mapa de contenidos.
+- [x] Implementar Inicio, Nosotros, Servicios y Contacto.
+- [x] Incluir Ventajas en Inicio.
+- [x] Aplicar `BRAND.md`.
 - [ ] Crear formularios de lead.
-- [ ] Preparar SEO tecnico inicial.
+- [x] Preparar SEO tecnico inicial con metadata por pagina.
 
 ## Fase 5 - Auth y panel base
 
