@@ -72,6 +72,7 @@ Fase 1 - Inicializacion tecnica del repositorio:
 - [x] Agregar paginas de Terminos y condiciones y Politica de privacidad.
 - [x] Aplicar animaciones fade-in con libreria.
 - [x] Preparar SEO tecnico inicial con metadata por pagina.
+- [x] Agregar canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots y manifest.
 
 ## Fase 5 - Auth y panel base
 

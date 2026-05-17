@@ -118,7 +118,12 @@ Contenido inicial:
 - Terminos y condiciones.
 - Politica de privacidad.
 - Animaciones fade-in con `motion`.
-- SEO basico.
+- SEO tecnico: metadata, canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots y manifest.
+
+Ambientes SEO:
+
+- Produccion: `NEXT_PUBLIC_SITE_URL=https://lexgarantia.com`, `NEXT_PUBLIC_INDEXABLE=true`.
+- Dev: `NEXT_PUBLIC_SITE_URL=https://dev-env.lexgarantia.com`, `NEXT_PUBLIC_INDEXABLE=false`.
 
 Fuente:
 

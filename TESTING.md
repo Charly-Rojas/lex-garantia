@@ -39,7 +39,7 @@ Resultados de Paso 2:
 
 - `npm run lint`: exitoso.
 - `npm run build`: exitoso.
-- Rutas compiladas: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`.
+- Rutas compiladas: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`, `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`.
 - Navegacion en dev server verificada con Playwright CLI:
   - Home con contenido visible.
   - Nosotros con texto institucional.
@@ -47,7 +47,9 @@ Resultados de Paso 2:
   - Contacto con `contacto@lexgarantia.com`, formulario y ubicaciones.
   - Paginas legales cargan contenido.
   - Menu mobile abre y muestra navegacion.
-  - Boton fijo de WhatsApp visible.
+- Boton fijo de WhatsApp visible.
+- `robots.txt` y `sitemap.xml` existen.
+- Produccion debe quedar indexable; dev debe quedar `noindex`.
   - Sin overlay de error de Next.js.
 
 Validar manualmente:

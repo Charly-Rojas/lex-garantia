@@ -81,12 +81,14 @@ npm install -D @types/nodemailer
 - Se cambio el favicon a un recorte redondeado del logotipo.
 - Se cambio el logo del hero por una version con fondo transparente.
 - Se elimino `.next/` para limpiar cache local antes de regenerar build.
+- Se agrego SEO tecnico: metadata, canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots, manifest e imagen OG.
+- Se preparo separacion SEO por ambiente: produccion indexable y dev `noindex`.
 
 ## Validaciones
 
 - `npm run lint`: exitoso.
 - `npm run build`: exitoso.
-- Rutas generadas en build: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`.
+- Rutas generadas en build: `/`, `/contacto`, `/nosotros`, `/servicios`, `/terminos-y-condiciones`, `/politica-de-privacidad`, `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`.
 - Supabase CLI muestra `lex-garantia` como proyecto linkeado.
 - Dev server levantado con `npm run dev` en `http://localhost:3000`.
 - Verificacion en navegador con Playwright CLI:

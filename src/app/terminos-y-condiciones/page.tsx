@@ -3,12 +3,14 @@ import Link from "next/link";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Términos y condiciones",
   description:
     "Términos generales de uso del sitio web de Lex Garantía.",
-};
+  path: "/terminos-y-condiciones",
+});
 
 const sections = [
   {

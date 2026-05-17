@@ -4,12 +4,14 @@ import { ServiceCard } from "@/components/sections/service-card";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Servicios",
   description:
-    "Servicios de Lex Garantía para contratación, vigencia e incumplimiento en arrendamientos.",
-};
+    "Servicios de póliza jurídica de arrendamiento: investigación, contrato, firma, cobranza administrativa, alternativas de solución, demanda y seguimiento judicial.",
+  path: "/servicios",
+});
 
 export default function ServiciosPage() {
   return (

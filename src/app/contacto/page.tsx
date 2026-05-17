@@ -4,12 +4,14 @@ import { ContactForm } from "@/components/sections/contact-form";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contacto",
   description:
-    "Datos de contacto y ubicaciones de Lex Garantía en Ciudad de México, Puebla y San Miguel de Allende.",
-};
+    "Contacta a Lex Garantía para solicitar información sobre pólizas jurídicas de arrendamiento en Ciudad de México, Puebla y San Miguel de Allende.",
+  path: "/contacto",
+});
 
 export const runtime = "nodejs";
 

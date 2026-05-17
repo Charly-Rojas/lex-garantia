@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Nosotros",
   description:
-    "Conoce el enfoque institucional de Lex Garantía para pólizas jurídicas de arrendamiento.",
-};
+    "Conoce el enfoque institucional de Lex Garantía, despacho especializado en pólizas jurídicas para contratos de arrendamiento de inmuebles.",
+  path: "/nosotros",
+});
 
 export default function NosotrosPage() {
   return (

@@ -13,6 +13,7 @@ Paso 2 inicializado:
 - Formulario de contacto con envío SMTP configurable y confirmación al solicitante.
 - Botón fijo de WhatsApp, enlaces de teléfono/correo/WhatsApp y enlaces a Google Maps.
 - Menú mobile con hamburguesa y animaciones fade-in con `motion`.
+- SEO técnico: metadata, canonical, Open Graph, Twitter cards, JSON-LD, sitemap, robots y manifest.
 - Identidad visual aplicada desde `BRAND.md`.
 
 ## Requisitos
@@ -41,6 +42,8 @@ Completar valores reales fuera de Git:
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+NEXT_PUBLIC_SITE_URL=https://lexgarantia.com
+NEXT_PUBLIC_INDEXABLE=false
 
 SMTP_HOST=
 SMTP_PORT=587
@@ -71,6 +74,20 @@ Rutas actuales:
 ```
 
 El formulario de contacto requiere SMTP real para enviar correos. Sin esas variables, la app compila y muestra error controlado al intentar enviar.
+
+Para producción, usar:
+
+```text
+NEXT_PUBLIC_SITE_URL=https://lexgarantia.com
+NEXT_PUBLIC_INDEXABLE=true
+```
+
+Para dev, usar:
+
+```text
+NEXT_PUBLIC_SITE_URL=https://dev-env.lexgarantia.com
+NEXT_PUBLIC_INDEXABLE=false
+```
 
 ## Validación
 
